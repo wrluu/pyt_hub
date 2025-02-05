@@ -1,30 +1,23 @@
-def get_mask_card_number(card_number):
+def get_mask_card_number(card_info):
     """
-    Принимает на вход номер карты в виде числа и возвращает маску номера по правилу XXXX XX** **** XXXX
+    Принимает на вход строку с типом и номером карты и возвращает маску номера по правилу XXXX XX** **** XXXX
     """
-    card_str = str(card_number)
-    if len(card_str) != 16:
+    parts = card_info.split()
+    card_number = parts[-1]
+    if len(card_number) != 16:
         raise ValueError("Номер карты должен содержать 16 цифр.")
-    return f"XXXX XX** **** {card_str[-4:]}"
+    masked_number = f"{card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}"
+    return ' '.join(parts[:-1]) + ' ' + masked_number
 
-def get_mask_account(account_number):
+def get_mask_account(account_info):
     """
-    Принимает на вход номер счета в виде числа и возвращает маску номера по правилу **XXXX
+    Принимает на вход строку с типом и номером счета и возвращает маску номера по правилу **XXXX
     """
-    account_str = str(account_number)
-    if len(account_str) < 6:
+    parts = account_info.split()
+    account_number = parts[-1]
+    if len(account_number) < 6:
         raise ValueError("Номер счета должен содержать не менее 6 цифр.")
-    return f"**{account_str[-4:]}"
+    masked_number = f"**{account_number[-4:]}"
+    return ' '.join(parts[:-1]) + ' ' + masked_number
 
-def main():
-    try:
-        card_number = int(input())
-        account_number = int(input())
 
-        print(get_mask_card_number(card_number))
-        print(get_mask_account(account_number))
-    except ValueError:
-        print("Ошибка: Введенное значение не является корректным числом.")
-
-if __name__ == "__main__":
-    main()
