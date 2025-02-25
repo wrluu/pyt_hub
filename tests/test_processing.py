@@ -1,7 +1,6 @@
 import pytest
 from datetime import datetime
 from processing import (filter_by_state, sort_by_date)
-
 @pytest.fixture
 def sample_data():
     return [
