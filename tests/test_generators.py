@@ -1,7 +1,10 @@
-# test_generators.py
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
 import pytest
-from generators import filter_by_currency, transaction_descriptions, card_number_generator
+from generators import (filter_by_currency, transaction_descriptions, card_number_generator)
 
 transactions = [
     {
