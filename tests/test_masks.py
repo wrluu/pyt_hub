@@ -1,4 +1,7 @@
+import sys
+import os
 import pytest
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 from module_of_mask import get_mask_card_number, get_mask_account
 
 @pytest.mark.parametrize("card_info, expected", [
