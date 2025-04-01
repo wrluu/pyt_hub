@@ -1,6 +1,9 @@
-import pytest
 from unittest.mock import patch
+
+import pytest
+
 from src.external_api import convert_currency
+
 
 def test_convert_currency_usd():
     with patch('src.external_api.requests.get') as mock_get:

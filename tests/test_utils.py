@@ -1,6 +1,9 @@
+from unittest.mock import mock_open, patch
+
 import pytest
-from unittest.mock import patch, mock_open
+
 from src.utils import read_json
+
 
 @pytest.fixture
 def mock_json_file():

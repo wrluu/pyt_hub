@@ -1,6 +1,7 @@
 import functools
 import sys
 
+
 def log(filename=None):
     """
     Декоратор для логирования выполнения функции

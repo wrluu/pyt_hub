@@ -1,8 +1,11 @@
-import sys
 import os
+import sys
+
 import pytest
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
-from widget import mask_account_card, get_date
+from widget import get_date, mask_account_card
+
 
 @pytest.mark.parametrize("card_info, expected", [
     ("Visa Platinum 7000792289606361", "Visa Platinum 7000 79** **** 6361"),

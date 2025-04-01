@@ -1,5 +1,6 @@
-import requests
 import os
+
+import requests
 
 API_KEY = os.getenv("EXCHANGE_RATES_API_KEY")
 BASE_URL = "http://api.exchangeratesapi.io/v1/latest?access_key={}&base=USD".format(API_KEY)
