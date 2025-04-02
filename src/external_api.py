@@ -1,15 +1,16 @@
 import os
-
 import requests
 
 API_KEY = os.getenv("EXCHANGE_RATES_API_KEY")
-BASE_URL = "http://api.exchangeratesapi.io/v1/latest?access_key={}&base=USD".format(API_KEY)
+BASE_URL = f"http://api.exchangeratesapi.io/v1/latest?access_key={API_KEY}&base=USD"
 
-
-def convert_currency(amount, currency):
+def convert_currency(transaction):
     """
     Функция для конвертации валюты в рубли.
     """
+    amount = float(transaction['operationAmount']['amount'])
+    currency = transaction['operationAmount']['currency']['code']
+
     if currency == 'RUB':
         return amount
 
@@ -17,7 +18,7 @@ def convert_currency(amount, currency):
     rates = response.json().get('rates', {})
 
     if currency == 'USD':
-        rate = rates.get('RUB', 1.0)  # Используем 1.0 по умолчанию, если курс не найден
+        rate = rates.get('RUB', 1.0)
     elif currency == 'EUR':
         rub_rate = rates.get('RUB', 1.0)
         eur_rate = rates.get('EUR', 1.0)

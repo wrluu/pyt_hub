@@ -1,7 +1,6 @@
 import json
 import os
 
-
 def read_json(file_path):
     """
     Читает JSON-файл и возвращает список словарей с данными о финансовых транзакциях.
