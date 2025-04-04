@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 def filter_by_state(data, state='EXECUTED'):
     """
     Фильтрует список словарей по значению ключа 'state'

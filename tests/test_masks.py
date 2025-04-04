@@ -1,5 +1,11 @@
+import os
+import sys
+
 import pytest
-from module_of_mask import get_mask_card_number, get_mask_account
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from module_of_mask import get_mask_account, get_mask_card_number
+
 
 @pytest.mark.parametrize("card_info, expected", [
     ("Visa Platinum 7000792289606361", "Visa Platinum 7000 79** **** 6361"),

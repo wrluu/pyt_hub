@@ -1,6 +1,13 @@
+import os
+import sys
+
 import pytest
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 from datetime import datetime
-from processing import (filter_by_state, sort_by_date)
+
+from processing import filter_by_state, sort_by_date
+
 
 @pytest.fixture
 def sample_data():
